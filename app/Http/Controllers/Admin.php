@@ -174,10 +174,10 @@ public function updateshowtime(Request $request, $id)
         }
         $newRole = $user->role === 'admin' ? 'user' : 'admin';
         $user->update(['role' => $newRole]);
-        // return response()->json([
-        //     'message' => 'User role updated successfully', 'user' => $user,
-        //     'new_role' => $newRole,
-        // ]);
+        return response()->json([
+            'message' => 'User role updated successfully', 'user' => $user,
+            'new_role' => $newRole,
+        ]);
     }
     public function getreport() {
 
