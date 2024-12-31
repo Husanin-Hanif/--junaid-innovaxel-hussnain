@@ -11,11 +11,11 @@ class Admin extends Controller
 {
      public function createmovie( Request $request){
 
-        // $request->validate([
-        //     'title'=> 'required|string|max:200',
-        //     'description' =>'nullable|string',
-        //     'genre'=>'required|string|max:100',
-        // ]);
+        $request->validate([
+            'title'=> 'required|string|max:200',
+            'description' =>'nullable|string',
+            'genre'=>'required|string|max:100',
+        ]);
         $movie=movie::create($request->all());
 
 
