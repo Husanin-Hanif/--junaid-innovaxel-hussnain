@@ -129,14 +129,14 @@ public function updateshowtime(Request $request, $id)
         if (!$showtime) {
             return response()->json(['message' => 'Showtime not found'], 404);
         }
-        // $validated = $request->validate([
-        //     'movie_id' => 'required|exists:movie,id',
-        //     'date' => 'required|date',
-        //     'firsttime' => 'required|date_format:h:i A',
-        //     'secondtime' => 'required|date_format:h:i A',
-        //     'capacity' => 'required|integer|min:1',
-        //     'price' => 'required|numeric|min:1',
-        // ]);
+        $validated = $request->validate([
+            'movie_id' => 'required|exists:movie,id',
+            'date' => 'required|date',
+            'firsttime' => 'required|date_format:h:i A',
+            'secondtime' => 'required|date_format:h:i A',
+            'capacity' => 'required|integer|min:1',
+            'price' => 'required|numeric|min:1',
+        ]);
         $validated['firsttime'] = \Carbon\Carbon::createFromFormat('h:i A', $validated['firsttime'])->format('H:i:s');
         $validated['secondtime'] = \Carbon\Carbon::createFromFormat('h:i A', $validated['secondtime'])->format('H:i:s');
 
