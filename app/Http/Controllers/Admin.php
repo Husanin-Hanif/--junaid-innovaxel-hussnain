@@ -71,10 +71,10 @@ class Admin extends Controller
 
     }
 
-    // public function index(){
-    //     $showtime=Showtime::with('movie')->get();
-    //     return \response()->json($showtime);
-    // }
+    public function index(){
+        $showtime=Showtime::with('movie')->get();
+        return \response()->json($showtime);
+    }
 
     public function show($id){
         $showtime=Showtime::with('movie')->find($id);
